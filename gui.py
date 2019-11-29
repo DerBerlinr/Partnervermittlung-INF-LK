@@ -93,20 +93,40 @@ class GUI:
         la9=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
+        self.hobby = StringVar()
+        self.hobby.set("")
+        en9 = Entry(fenster, width=8, textvariable=self.hobby)
+        self.hobby.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)                        # muss hier nicht anstatt hobby en9 hin?
+
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
         la10=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
+        self.adresse = StringVar()
+        self.adresse.set("")
+        en10 = Entry(fenster, width=8, textvariable=self.adresse)
+        self.adresse.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
         la11=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
+        self.telefonnummer = StringVar()
+        self.telefonnummer.set("")
+        en11 = Entry(fenster, width=8, textvariable=self.telefonnummer)
+        self.telefonnummer.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
         la12=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
+        self.email = StringVar()
+        self.email.set("")
+        en12 = Entry(fenster, width=8, textvariable=self.email)
+        self.email.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
@@ -123,6 +143,11 @@ class GUI:
         la15=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
+        self.iban = StringVar()
+        self.iban.set("")
+        en15 = Entry(fenster, width=8, textvariable=self.iban)
+        self.iban.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
         la16=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
@@ -138,10 +163,20 @@ class GUI:
         la18=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
+        self.walter = StringVar()
+        self.walter.set("")
+        en18 = Entry(fenster, width=8, textvariable=self.walter)
+        self.walter.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
         la19=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
+        self.wgroesse = StringVar()
+        self.wgroesse.set("")
+        en19 = Entry(fenster, width=8, textvariable=self.wgroesse)
+        self.wgroesse.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
@@ -155,12 +190,17 @@ class GUI:
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
-        la1=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
+        la22=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
+        self.whobby = StringVar()
+        self.whobby.set("")
+        en22 = Entry(fenster, width=8, textvariable=self.whobby)
+        self.whobby.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
-        la1=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
+        la23=Label(self.fenster,textvariable=self.la1_text, width=20, bg="yellow", justify=CENTER)
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
 
