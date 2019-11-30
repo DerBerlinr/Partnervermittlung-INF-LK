@@ -13,6 +13,31 @@ class GUI:
         rahmen1.pack()
 
 
+        self.name = "" E1
+        self.vorname = "" E2
+        self.geburtsdatum = "" E3
+        self.geschlecht = "" B4
+        self.groesse = "" E5
+        self.figur = "" B6
+        self.rauchverhalten = "" B7
+        self.orientierung = "" B8
+        self.hobby = [] E9
+        self.adresse = [] E10
+        self.telefonnummer = "" E11
+        self.email = "" E12
+        self.benachrichtigung = "" B13
+        self.zahlungsart = "" B14
+        self.iban = "" E15
+        self.kontaktaufnahme = "" B16
+
+        self.wgeschlecht = "" B17
+        self.walter = "" E18
+        self.wgroesse = "" E19
+        self.wfigur = "" B20
+        self.wrauchverhalten = "" B21
+        self.whobby = [] E22
+
+
         abstand_x=3
         abstand_y=3
 
@@ -23,10 +48,6 @@ class GUI:
         self.en_name=StringVar()
         en1=Entry(rahmen1,width=20,textvariable=self.en_name)
         en1.grid(row=1,column=1,sticky=W, padx=abstand_x, pady=abstand_y)
-
-
-
-
 
         self.la1_text=StringVar()
         self.la1_text.set("Signalgeber Einfach")
@@ -204,9 +225,12 @@ class GUI:
         self.la1_text.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
 
-        bu1=Button(self.fenster,text="Signalgeber Einfach", width=20, command=self.sig_einfach)
-        bu1.place(x=70,y=100)
+        self.bu1_1=Button(self.fenster,text="Signalgeber Einfach", width=20, command=self.mann)
+        self.bu1_1.grid(row=1,colomn=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
+
+        def mann(self):
+            self.geschlecht = "m"
 
     def getdata(self):
         return x, y, z,
