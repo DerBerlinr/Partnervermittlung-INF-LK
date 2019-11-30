@@ -1,3 +1,4 @@
+import GUI from gui
 class Main:
     def __init__(self):
-        pass
+        die_gui = GUI()

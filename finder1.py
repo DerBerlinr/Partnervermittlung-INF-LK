@@ -3,7 +3,14 @@ class Finder1():
         pass
 
     def findePartner(self):
-        pass
+
+        #    1. GET DATA TO SEARCH FOR
+
+        searchfile = open("file.txt", "r")
+        for line in searchfile:
+            if "searchphrase" in line:
+                print line
+            searchfile.close()
 
     def returnPartner(self):
         pass
