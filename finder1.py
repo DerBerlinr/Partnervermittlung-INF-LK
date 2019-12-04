@@ -3,7 +3,7 @@ class Finder1():
         pass
 
     def findePartner(self, wunschliste):
-        #    1. GET DATA TO SEARCH FOR
+        # in wunschliste müssen w-werte übergeben werden
         temp = []
         searchfile = open("file.txt", "r")
         for hobby in range(len(wunschliste[6])):
@@ -15,6 +15,7 @@ class Finder1():
         for i in len(temp):
             name = temp[i[1:6]]
             kontaktaufnahme = temp[i[7:16]]
+        return name, kontaktaufnahme
 
     def returnPartner(self):
         # namen und Kontaktaufnahme

@@ -23,3 +23,4 @@ class Bewerber:
         self.wfigur = ""
         self.wrauchverhalten = ""
         self.whobby = []
+        self.wunschliste = [self.wgeschlecht, self.walter, self.wgroesse, self.wfigur, self.wrauchverhalten, self.whobby]
