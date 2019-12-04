@@ -1,4 +1,8 @@
-class Finder1():
+from random import *
+from abstrakterFinder import *
+
+
+class Finder1(AbstrakterFinder):
     def __init__(self):
         pass
 
@@ -12,9 +16,10 @@ class Finder1():
                     temp.append(line)
                     searchfile.close()
 
-        for i in len(temp):
-            name = temp[i[1:6]]
-            kontaktaufnahme = temp[i[7:16]]
+        laengeListe = len(temp)
+        i = randint(0,laengeListe)
+        name = temp[i[1:6]]
+        kontaktaufnahme = temp[i[7:16]]
         return name, kontaktaufnahme
 
     def returnPartner(self):

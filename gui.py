@@ -1,8 +1,10 @@
 from Tkinter import *
+from bewerber import *
 
 
 class GUI(Tk):
     def __init__(self):
+
         Tk.__init__(self)
 
         rahmen1=Frame(self, relief=SUNKEN, borderwidth=2)
@@ -192,13 +194,11 @@ class GUI(Tk):
         self.la14=Label(rahmen1,textvariable=self.la14_text, width=groesse, bg=farbe, justify=CENTER)
         self.la14.grid(row=14,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
-
         self.bu6_1=Button(rahmen1,text="Lastschrift", width=groesse, command=self.lastschrift)
         self.bu6_1.grid(row=14,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.bu6_2=Button(rahmen1,text="Ueberweisung", width=groesse, command=self.ueberweisung)
         self.bu6_2.grid(row=14,column=2,sticky=E, padx=abstand_x, pady=abstand_y)
-
 
         self.la15_text=StringVar()
         self.la15_text.set("IBAN")
@@ -215,7 +215,6 @@ class GUI(Tk):
         self.la16=Label(rahmen1,textvariable=self.la16_text, width=groesse, bg=farbe, justify=CENTER)
         self.la16.grid(row=16,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
-
         self.bu7_1=Button(rahmen1,text="Telefon", width=groesse, command=self.aufnahmeTelefon)
         self.bu7_1.grid(row=16,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
@@ -227,7 +226,6 @@ class GUI(Tk):
 
         self.bu7_4=Button(rahmen1,text="Chiffre", width=groesse, command=self.aufnahmeChiffre)
         self.bu7_4.grid(row=16,column=4,sticky=E, padx=abstand_x, pady=abstand_y)
-
 
         self.la17_text=StringVar()
         self.la17_text.set("Wunsch-Geschlecht")
@@ -297,8 +295,6 @@ class GUI(Tk):
         self.whobby.set("")
         self.en22 = Entry(rahmen1, width=groesse, textvariable=self.whobby)
         self.en22.grid(row=22,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
-
-
 
         self.bu11_2=Button(rahmen1,text="Fertig", width=groesse, command=self.abschicken)
         self.bu11_2.grid(row=23,column=5,sticky=E, padx=abstand_x, pady=abstand_y)
@@ -391,33 +387,34 @@ class GUI(Tk):
 
 
     def abschicken(self):
-        temp = []
-        temp.append(self.name)
-        temp.append(self.vorname)
-        temp.append(self.geburtsdatum)
-        temp.append(self.geschlecht)
-        temp.append(self.groesse)
-        temp.append(self.figur)
-        temp.append(self.rauchverhalten)
-        temp.append(self.orientierung)
-        temp.append(self.hobby)
-        temp.append(self.adresse)
-        temp.append(self.telefonnummer)
-        temp.append(self.email)
-        temp.append(self.benachrichtigung)
-        temp.append(self.zahlungsart)
-        temp.append(self.iban)
-        temp.append(self.kontaktaufnahme)
 
-        wunschliste = []
-        wunschliste.append(self.wgeschlecht)
-        wunschliste.append(self.walter)
-        wunschliste.append(self.wgroesse)
-        wunschliste.append(self.wfigur)
-        wunschliste.append(self.wrauchverhalten)
-        wunschliste.append(self.whobby)
+        neuePerson = Bewerber()
 
-        return temp, wunschliste
+        neuePerson.name = self.name
+        neuePerson.vorname = self.vorname
+        neuePerson.geburtsdatum = self.geburtsdatum
+        neuePerson.geschlecht = self.geschlecht
+        neuePerson.groesse = self.groesse
+        neuePerson.figur = self.figur
+        neuePerson.rauchverhalten = self.rauchverhalten
+        neuePerson.orientierung = self.orientierung
+        neuePerson.hobby = self.hobby
+        neuePerson.adresse = self.adresse
+        neuePerson.telefonnummer = self.telefonnummer
+        neuePerson.email = self.email
+        neuePerson.benachrichtigung = self.benachrichtigung
+        neuePerson.zahlungsart = self.zahlungsart
+        neuePerson.iban = self.iban
+        neuePerson.kontaktaufnahme = self.kontaktaufnahme
+
+        neuePerson.wgeschlecht = self.wgeschlecht
+        neuePerson.walter = self.walter
+        neuePerson.wgroesse = self.wgroesse
+        neuePerson.wfigur = self.wfigur
+        neuePerson.wrauchverhalten = self.wrauchverhalten
+        neuePerson.whobby = self.whobby
+
+        main.Main.PersonVonGUI(neuePerson)
 
 
     def getdata(self):
