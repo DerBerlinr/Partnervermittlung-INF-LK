@@ -1,39 +1,18 @@
 from Tkinter import *
 from bewerber import *
+from main import *
 
 
-class GUI(Tk):
+
+class GUI(Tk,Bewerber):
     def __init__(self):
 
         Tk.__init__(self)
+        Bewerber.__init__(self)
+
 
         rahmen1=Frame(self, relief=SUNKEN, borderwidth=2)
         rahmen1.pack()
-
-        self.name = ""
-        self.vorname = ""
-        self.geburtsdatum = ""
-        self.geschlecht = ""
-        self.groesse = ""
-        self.figur = ""
-        self.rauchverhalten = ""
-        self.orientierung = ""
-        self.hobby = []
-        self.adresse = []
-        self.telefonnummer = ""
-        self.email = ""
-        self.benachrichtigung = ""
-        self.zahlungsart = ""
-        self.iban = ""
-        self.kontaktaufnahme = ""
-
-        self.wgeschlecht = ""
-        self.walter = ""
-        self.wgroesse = ""
-        self.wfigur = ""
-        self.wrauchverhalten = ""
-        self.whobby = []
-
 
         farbe = "#696969"
 
@@ -414,8 +393,10 @@ class GUI(Tk):
         neuePerson.wrauchverhalten = self.wrauchverhalten
         neuePerson.whobby = self.whobby
 
-        main.Main.PersonVonGUI(neuePerson)
+        dieMain.PersonVonGUI(neuePerson)
 
+    def test(self):
+        print "Hallo"
 
     def getdata(self):
         return x, y, z,

@@ -1,6 +1,5 @@
-class Ablaufsteuerung:
-    def __init__(self):
-        pass
+from main import *
 
+dieMain = Main() # NOTE: Initialisiert alle Programme, GUI wird geoeffnet
 
-        #aneinanderreihung der für das Programm notwendige Schritte
+dieMain.die_gui.test()

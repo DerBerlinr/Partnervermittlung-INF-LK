@@ -7,7 +7,7 @@ class Finder1(AbstrakterFinder):
         pass
 
     def findePartner(self, wunschliste):
-        # in wunschliste müssen w-werte übergeben werden
+        # in wunschliste muessen w-werte uebergeben werden
         temp = []
         searchfile = open("file.txt", "r")
         for hobby in range(len(wunschliste[6])):
