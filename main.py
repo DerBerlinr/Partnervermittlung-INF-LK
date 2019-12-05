@@ -23,7 +23,9 @@ class Main:
 
 
     def speichern(self):
-        pass
+        variables = {}
+        execfile("test.py", variables )
+        print variables # globals from the someFile module
 
 
 
