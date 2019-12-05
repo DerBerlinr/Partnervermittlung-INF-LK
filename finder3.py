@@ -9,7 +9,7 @@ class Finder3(AbstrakterFinder):
     def findePartner(self, wunschliste):
         # in wunschliste muessen w-werte uebergeben werden
         temp = []
-        searchfile = open("file.txt", "r")
+        searchfile = open("file3.txt", "r")
         for hobby in range(len(wunschliste[6])):
             for line in searchfile:
                 if wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line and wunschliste[6][hobby] in line:
@@ -25,6 +25,3 @@ class Finder3(AbstrakterFinder):
     def returnPartner(self):
         # namen und Kontaktaufnahme
         pass
-
-        temp[4]
-        temp[i[1:6]]

@@ -8,17 +8,19 @@ class Finder1(AbstrakterFinder):
 
     def findePartner(self, wunschliste):
         # in wunschliste muessen w-werte uebergeben werden
+        name = " "
         temp = []
-        searchfile = open("file.txt", "r")
-        for hobby in range(len(wunschliste[6])):
+        searchfile = open("file1.txt", "r")
+        for hobby in range(len(wunschliste)):
             for line in searchfile:
-                if wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line and wunschliste[6][hobby] in line:
+                if wunschliste[0] in line and wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5][hobby] in line:
                     temp.append(line)
                     searchfile.close()
 
         laengeListe = len(temp)
-        i = randint(0,laengeListe)
-        name = temp[i[1:6]]
+        i = randint(0,laengeListe-1)
+        name = temp[i]
+        #name = temp[i[0:6]]
         kontaktaufnahme = temp[i[7:16]]
         return name, kontaktaufnahme
 
