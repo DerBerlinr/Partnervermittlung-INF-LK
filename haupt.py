@@ -1,4 +1,3 @@
-from gui import GUI
 from abstrakterFinder import *
 from finder1 import *
 from finder2 import *

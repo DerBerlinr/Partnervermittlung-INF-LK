@@ -32,6 +32,7 @@ class GUI(Tk,Bewerber):
         self.la1_text.set("Name")
         self.la1=Label(rahmen1,textvariable=self.la1_text, width=groesse, bg=farbe, justify=CENTER)
         self.la1.grid(row=1,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+
         self.name = StringVar()
         self.name.set("")
         self.en1 = Entry(rahmen1, width=groesse, textvariable=self.name)
@@ -289,10 +290,10 @@ class GUI(Tk,Bewerber):
         self.la23=Label(rahmen1,textvariable=self.la23_text, width=groesse, bg=farbe, justify=CENTER)
         self.la23.grid(row=24,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
-        self.la25_text=StringVar()
-        self.la25_text.set("")
-        self.la25=Label(rahmen1,textvariable=self.la25_text, width=groesse, bg=farbe, justify=CENTER)
-        self.la25.grid(row=25,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
+        self.la24_text=StringVar()
+        self.la24_text.set("")
+        self.la24=Label(rahmen1,textvariable=self.la24_text, width=groesse, bg=farbe, justify=CENTER)
+        self.la24.grid(row=25,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
 
 
@@ -380,7 +381,7 @@ class GUI(Tk,Bewerber):
     def wunschnichtraucher(self):
         self.wrauchverhalten = "nichtraucher"
 
-    def guiAktualisieren(self):
+    def guiAktualisieren(self, name, kontaktaufnahme):
         self.la23_text.set(name)
         self.la24_text.set(kontaktaufnahme)
 
@@ -415,15 +416,10 @@ class GUI(Tk,Bewerber):
 
         self.wunschListe = [neuePerson.wgeschlecht, neuePerson.walter, neuePerson.wgroesse, neuePerson.wfigur, neuePerson.wrauchverhalten, neuePerson.whobby]
 
-<<<<<<< Updated upstream
         print self.wunschListe
-=======
-        self.wunschListe=[neuePerson.wgeschlecht,neuePerson.walter,neuePerson.wgroesse,neuePerson.wfigur,neuePerson.wrauchverhalten,neuePerson.whobby]
->>>>>>> Stashed changes
         print self.walter
         self.haupt.personVonGUI(neuePerson)
-        self.finder1.findePartner(self.wunschListe)
-        self.guiAktualisieren()
+
 
     def test(self):
         print "Hallo"
