@@ -415,7 +415,11 @@ class GUI(Tk,Bewerber):
 
         self.wunschListe = [neuePerson.wgeschlecht, neuePerson.walter, neuePerson.wgroesse, neuePerson.wfigur, neuePerson.wrauchverhalten, neuePerson.whobby]
 
+<<<<<<< Updated upstream
         print self.wunschListe
+=======
+        self.wunschListe=[neuePerson.wgeschlecht,neuePerson.walter,neuePerson.wgroesse,neuePerson.wfigur,neuePerson.wrauchverhalten,neuePerson.whobby]
+>>>>>>> Stashed changes
         print self.walter
         self.haupt.personVonGUI(neuePerson)
         self.finder1.findePartner(self.wunschListe)
