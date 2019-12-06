@@ -17,6 +17,7 @@ class GUI(Tk,Bewerber):
         Bewerber.__init__(self)
 
 
+
         rahmen1=Frame(self, relief=SUNKEN, borderwidth=2)
         rahmen1.pack()
 
@@ -406,13 +407,16 @@ class GUI(Tk,Bewerber):
         neuePerson.kontaktaufnahme = self.kontaktaufnahme
 
         neuePerson.wgeschlecht = self.wgeschlecht
-        neuePerson.walter = self.walter
-        neuePerson.wgroesse = self.wgroesse
+        neuePerson.walter = self.walter.get()
+        neuePerson.wgroesse = self.wgroesse.get()
         neuePerson.wfigur = self.wfigur
         neuePerson.wrauchverhalten = self.wrauchverhalten
-        neuePerson.whobby = self.whobby
+        neuePerson.whobby = self.whobby.get()
 
-        self.wunschListe=[neuePerson.wgeschlecht,neuePerson.walter,neuePerson.wgroesse,neuePerson.wfigur,neuePerson.wrauchverhalten,neuePerson.whobby]
+        self.wunschListe = [neuePerson.wgeschlecht, neuePerson.walter, neuePerson.wgroesse, neuePerson.wfigur, neuePerson.wrauchverhalten, neuePerson.whobby]
+
+        print self.wunschListe
+        print self.walter
         self.haupt.personVonGUI(neuePerson)
         self.finder1.findePartner(self.wunschListe)
         self.guiAktualisieren()
@@ -422,6 +426,7 @@ class GUI(Tk,Bewerber):
 
     def getdata(self):
         return x, y, z,
+
 
 if __name__ == '__main__':
     dasFenster = GUI()
