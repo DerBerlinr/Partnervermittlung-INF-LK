@@ -5,7 +5,7 @@ from abstrakterFinder import *
 from finder1 import *
 from finder2 import *
 from finder3 import *
-from time import *
+import sqlite3
 
 
 
@@ -398,6 +398,15 @@ class GUI(Tk,Bewerber):
             self.la25_text.set("Fehlerhafte Eingabe! - Bitte fuelle alle Felder aus!")
             print("1. Instanz")
             return
+
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
+
+        c.execute('CREATE TABLE IF NOT EXISTS benutzer(name TEXT, vorname TEXT, geburtsdatum TEXT, geschlecht TEXT, groesse TEXT, figur TEXT, rauchverhalten TEXT, orientierung TEXT, hobby TEXT, adresse TEXT, telefonnummer TEXT, email TEXT, benachichtigung TEXT, zahlungsart TEXT, iban TEXT, kontaktaufnahme TEXT)')
+
+        c.execute('INSERT INTO benutzer (name, vorname, geburtsdatum, geschlecht, groesse, figur, rauchverhalten, orientierung, hobby, adresse, telefonnummer, email, benachichtigung, zahlungsart, iban, kontaktaufnahme) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (self.name.get(), self.vorname.get(), self.geburtsdatum.get(), self.geschlecht, self.groesse.get(), self.figur, self.rauchverhalten, self.orientierung, self.hobby.get(), self.adresse.get(), self.telefonnummer.get(), self.email.get(), self.benachrichtigung, self.zahlungsart, self.iban.get(), self.kontaktaufnahme))
+
+        conn.commit()
 
         neuePerson = Bewerber()
 

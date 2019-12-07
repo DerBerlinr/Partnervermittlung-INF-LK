@@ -14,8 +14,8 @@ class Finder1(AbstrakterFinder):
         temp = []
         searchfile = open("file1.txt", "r")
         #for hobby in range(len(wunschliste)):
+        check = 1
         for line in searchfile:
-            check = 1
             print(wunschliste)
             if wunschliste[0] in line and wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line:
                 temp.append(line)
