@@ -5,6 +5,7 @@ from abstrakterFinder import *
 from finder1 import *
 from finder2 import *
 from finder3 import *
+from time import *
 
 
 
@@ -162,7 +163,7 @@ class GUI(Tk,Bewerber):
         self.en12.grid(row=12,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la13_text=StringVar()
-        self.la13_text.set("Art d. Benachichtigung ueber pot. Partner")
+        self.la13_text.set("Art d. Benachrichtigung ueber pot. Partner")
         self.la13=Label(rahmen1,textvariable=self.la13_text, width=groesse, bg=farbe, justify=CENTER)
         self.la13.grid(row=13,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
@@ -295,6 +296,11 @@ class GUI(Tk,Bewerber):
         self.la24=Label(rahmen1,textvariable=self.la24_text, width=groesse, bg=farbe, justify=CENTER)
         self.la24.grid(row=25,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
+        self.la25_text=StringVar()
+        self.la25_text.set("")
+        self.la25=Label(rahmen1,textvariable=self.la25_text, width=40, bg="red", justify=CENTER)
+        self.la25.grid(row=26,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
+
 
 
     def mann(self):
@@ -331,13 +337,13 @@ class GUI(Tk,Bewerber):
         self.orientierung = "bisexuell"
 
     def telefon(self):
-        self.kontaktaufnahme = "telefon"
+        self.benachrichtigung = "telefon"
 
     def email(self):
-        self.kontaktaufnahme = "email"
+        self.benachrichtigung = "email"
 
     def post(self):
-        self.kontaktaufnahme = "post"
+        self.benachrichtigung = "post"
 
     def lastschrift(self):
         self.zahlungsart = "lastschrift"
@@ -388,6 +394,11 @@ class GUI(Tk,Bewerber):
 
     def abschicken(self):
 
+        if self.name == "" or self.vorname == "" or self.geburtsdatum == "" or self.geschlecht == "" or self.groesse == "" or self.figur == "" or self.rauchverhalten == "" or self.orientierung == "" or self.hobby == "" or self.adresse == "" or self.telefonnummer == "" or self.email == "" or self.benachrichtigung == "" or self.zahlungsart == "" or self.iban == "" or self.kontaktaufnahme == "" or self.wgeschlecht == "" or self.walter == "" or self.wgroesse == "" or self.wfigur == "" or self.wrauchverhalten == "" or self.whobby == "":
+            self.la25_text.set("Fehlerhafte Eingabe! - Bitte fuelle alle Felder aus!")
+            print "1. Instanz"
+            return
+
         neuePerson = Bewerber()
 
         neuePerson.name = self.name
@@ -419,6 +430,8 @@ class GUI(Tk,Bewerber):
         print self.wunschListe
         print self.walter
         self.haupt.personVonGUI(neuePerson)
+        a,b = self.finder1.findePartner(self.wunschListe)
+        self.guiAktualisieren(a,b)
 
 
     def test(self):

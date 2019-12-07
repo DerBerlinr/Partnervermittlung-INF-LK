@@ -1,1 +1,56 @@
-m#1#2#sportlich#raucher#3#Emil Mueller
+geschlecht#figur#rauchverhalten#orientierung#benachichtigung#zahlungsart#kontaktaufnahme#wgeschlecht#walter#wgroesse#wfigur#wrauchverhalten
+Hobby
+adresse
+telefonnummer
+Email
+IBAN
+whobby
+Vorname
+name
+
+m#sportlich#raucher#heterosexuell#post#lastschrift#post#w#12#1.65#sportlich#raucher
+rauchen
+Gurken Straße 23
++49 123278132
+emilmueller@randommail.de
+DE 45 100000000000 12389781237
+tennis (weil nicer ass lol :o)
+Emil
+Mueller
+
+w#vollschlank#nichtraucher#heterosexuell#telefon#ueberweisung#telefon#w#23#1.87#vollschlank#nichtraucher
+keine Hobbies
+Tomaten Straße 23
++49 128079870807082
+dieterMaier@randommail.de
+DE 45 100000000000 124124124124
+LoL-Esports
+Dieter
+Maier
+
+
+
+self.name = ""
+    self.vorname = ""
+    self.geburtsdatum = ""
+    self.geschlecht = ""
+    self.groesse = ""
+    self.figur = ""
+    self.rauchverhalten = ""
+    self.orientierung = ""
+    self.hobby = []
+    self.adresse = []
+    self.telefonnummer = ""
+    self.email = ""
+    self.benachrichtigung = ""
+    self.zahlungsart = ""
+    self.iban = ""
+    self.kontaktaufnahme = ""
+
+    self.wgeschlecht = ""
+    self.walter = ""
+    self.wgroesse = ""
+    self.wfigur = ""
+    self.wrauchverhalten = ""
+    self.whobby = []
+    self.wunschliste = [self.wgeschlecht, self.walter, self.wgroesse, self.wfigur, self.wrauchverhalten, self.whobby]

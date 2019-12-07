@@ -1,6 +1,6 @@
 from random import *
 from abstrakterFinder import *
-from gui import GUI
+from gui import *
 
 
 class Finder1(AbstrakterFinder):
@@ -8,6 +8,7 @@ class Finder1(AbstrakterFinder):
         pass
 
     def findePartner(self, wunschliste):
+        print wunschliste
         # in wunschliste muessen w-werte uebergeben werden
         name = " "
         temp = []
@@ -15,18 +16,23 @@ class Finder1(AbstrakterFinder):
         #for hobby in range(len(wunschliste)):
         for line in searchfile:
             check = 1
+            print wunschliste
             if wunschliste[0] in line and wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line:
                 temp.append(line)
                 check += 1
+                print "anhaengen erfolgreich!"
         searchfile.close()
 
-        if check >= 1:
+        print "check"
+
+        if check > 1:
             i = randint(0,len(temp)-1)
+            print "treffer!"
             name = temp[i]
             kontaktaufnahme = temp[i]
-            gui.GUI.guiAktualisieren(name, kontaktaufnahme)
+            return name, kontaktaufnahme
         else:
-            gui.GUI.guiAktualisieren(" ", " ")
+            return " ", " "
 
     def returnPartner(self):
         # namen und Kontaktaufnahme
