@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 from bewerber import *
 from haupt import *
 from abstrakterFinder import *
@@ -396,7 +396,7 @@ class GUI(Tk,Bewerber):
 
         if self.name == "" or self.vorname == "" or self.geburtsdatum == "" or self.geschlecht == "" or self.groesse == "" or self.figur == "" or self.rauchverhalten == "" or self.orientierung == "" or self.hobby == "" or self.adresse == "" or self.telefonnummer == "" or self.email == "" or self.benachrichtigung == "" or self.zahlungsart == "" or self.iban == "" or self.kontaktaufnahme == "" or self.wgeschlecht == "" or self.walter == "" or self.wgroesse == "" or self.wfigur == "" or self.wrauchverhalten == "" or self.whobby == "":
             self.la25_text.set("Fehlerhafte Eingabe! - Bitte fuelle alle Felder aus!")
-            print "1. Instanz"
+            print("1. Instanz")
             return
 
         neuePerson = Bewerber()
@@ -427,15 +427,15 @@ class GUI(Tk,Bewerber):
 
         self.wunschListe = [neuePerson.wgeschlecht, neuePerson.walter, neuePerson.wgroesse, neuePerson.wfigur, neuePerson.wrauchverhalten, neuePerson.whobby]
 
-        print self.wunschListe
-        print self.walter
+        print(self.wunschListe)
+        print(self.walter)
         self.haupt.personVonGUI(neuePerson)
         a,b = self.finder1.findePartner(self.wunschListe)
         self.guiAktualisieren(a,b)
 
 
     def test(self):
-        print "Hallo"
+        print("Hallo")
 
     def getdata(self):
         return x, y, z,
