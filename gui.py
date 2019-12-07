@@ -50,13 +50,13 @@ class GUI(Tk,Bewerber):
         self.en2.grid(row=2,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la3_text=StringVar()
-        self.la3_text.set("Geburtsdatum")
+        self.la3_text.set("abc")
         self.la3=Label(rahmen1,textvariable=self.la3_text, width=groesse, bg=farbe, justify=CENTER)
         self.la3.grid(row=3,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
-        self.geburtsdatum = StringVar()
-        self.geburtsdatum.set("")
-        self.en3 = Entry(rahmen1, width=groesse, textvariable=self.geburtsdatum)
+        self.abc = StringVar()
+        self.abc.set("")
+        self.en3 = Entry(rahmen1, width=groesse, textvariable=self.abc)
         self.en3.grid(row=3,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la4_text=StringVar()
@@ -226,7 +226,7 @@ class GUI(Tk,Bewerber):
         self.bu9_2.grid(row=17,column=2,sticky=E, padx=abstand_x, pady=abstand_y)
 
         self.la18_text=StringVar()
-        self.la18_text.set("Wunsch-Alter")
+        self.la18_text.set("Wunsch.abc")
         self.la18=Label(rahmen1,textvariable=self.la18_text, width=groesse, bg=farbe, justify=CENTER)
         self.la18.grid(row=18,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
 
@@ -394,7 +394,7 @@ class GUI(Tk,Bewerber):
 
     def abschicken(self):
 
-        if self.name == "" or self.vorname == "" or self.geburtsdatum == "" or self.geschlecht == "" or self.groesse == "" or self.figur == "" or self.rauchverhalten == "" or self.orientierung == "" or self.hobby == "" or self.adresse == "" or self.telefonnummer == "" or self.email == "" or self.benachrichtigung == "" or self.zahlungsart == "" or self.iban == "" or self.kontaktaufnahme == "" or self.wgeschlecht == "" or self.walter == "" or self.wgroesse == "" or self.wfigur == "" or self.wrauchverhalten == "" or self.whobby == "":
+        if self.name == "" or self.vorname == "" or self.abc == "" or self.geschlecht == "" or self.groesse == "" or self.figur == "" or self.rauchverhalten == "" or self.orientierung == "" or self.hobby == "" or self.adresse == "" or self.telefonnummer == "" or self.email == "" or self.benachrichtigung == "" or self.zahlungsart == "" or self.iban == "" or self.kontaktaufnahme == "" or self.wgeschlecht == "" or self.walter == "" or self.wgroesse == "" or self.wfigur == "" or self.wrauchverhalten == "" or self.whobby == "":
             self.la25_text.set("Fehlerhafte Eingabe! - Bitte fuelle alle Felder aus!")
             print("1. Instanz")
             return
@@ -402,9 +402,16 @@ class GUI(Tk,Bewerber):
         conn = sqlite3.connect('test.db')
         c = conn.cursor()
 
-        c.execute('CREATE TABLE IF NOT EXISTS benutzer(name TEXT, vorname TEXT, geburtsdatum TEXT, geschlecht TEXT, groesse TEXT, figur TEXT, rauchverhalten TEXT, orientierung TEXT, hobby TEXT, adresse TEXT, telefonnummer TEXT, email TEXT, benachichtigung TEXT, zahlungsart TEXT, iban TEXT, kontaktaufnahme TEXT)')
+        c.execute('CREATE TABLE IF NOT EXISTS benutzer (name TEXT, vorname TEXT, abc TEXT, geschlecht TEXT, groesse TEXT, figur TEXT, rauchverhalten TEXT, orientierung TEXT, hobby TEXT,'
+                  ' adresse TEXT, telefonnummer TEXT, email TEXT, benachichtigung TEXT, zahlungsart TEXT, iban TEXT, kontaktaufnahme TEXT, wgeschlecht TEXT, walter TEXT, wgroesse TEXT,'
+                  ' wfigur TEXT, wrauchverhalten TEXT, whobby TEXT)')
 
-        c.execute('INSERT INTO benutzer (name, vorname, geburtsdatum, geschlecht, groesse, figur, rauchverhalten, orientierung, hobby, adresse, telefonnummer, email, benachichtigung, zahlungsart, iban, kontaktaufnahme) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (self.name.get(), self.vorname.get(), self.geburtsdatum.get(), self.geschlecht, self.groesse.get(), self.figur, self.rauchverhalten, self.orientierung, self.hobby.get(), self.adresse.get(), self.telefonnummer.get(), self.email.get(), self.benachrichtigung, self.zahlungsart, self.iban.get(), self.kontaktaufnahme))
+        c.execute('INSERT INTO benutzer (name, vorname, abc, geschlecht, groesse, figur, rauchverhalten, orientierung, hobby, adresse, telefonnummer, email, benachichtigung, zahlungsart,'
+                  ' iban, kontaktaufnahme, wgeschlecht, walter, wgroesse, wfigur, wrauchverhalten, whobby) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                  ,(self.name.get(), self.vorname.get(), self.abc.get(), self.geschlecht, self.groesse.get(), self.figur, self.rauchverhalten, self.orientierung, self.hobby.get(), self.adresse.get(),
+                    self.telefonnummer.get(), self.email.get(), self.benachrichtigung, self.zahlungsart, self.iban.get(), self.kontaktaufnahme, self.wgeschlecht, self.walter.get(),
+                    self.wgroesse.get(), self.wfigur, self.wrauchverhalten, self.whobby.get()))
+
 
         conn.commit()
 
@@ -412,7 +419,7 @@ class GUI(Tk,Bewerber):
 
         neuePerson.name = self.name
         neuePerson.vorname = self.vorname
-        neuePerson.geburtsdatum = self.geburtsdatum
+        neuePerson.abc = self.abc
         neuePerson.geschlecht = self.geschlecht
         neuePerson.groesse = self.groesse
         neuePerson.figur = self.figur

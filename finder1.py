@@ -1,39 +1,49 @@
 from random import *
 from abstrakterFinder import *
 from gui import *
+import sqlite3
 
 
 class Finder1(AbstrakterFinder):
     def __init__(self):
         pass
 
-    def findePartner(self, wunschliste):
-        print(wunschliste)
-        # in wunschliste muessen w-werte uebergeben werden
-        name = " "
-        temp = []
-        searchfile = open("file1.txt", "r")
-        #for hobby in range(len(wunschliste)):
-        check = 1
-        for line in searchfile:
-            print(wunschliste)
-            if wunschliste[0] in line and wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line:
-                temp.append(line)
-                check += 1
-                print("anhaengen erfolgreich!")
-        searchfile.close()
 
-        print("check")
-
-        if check > 1:
-            i = randint(0,len(temp)-1)
-            print("treffer!")
-            name = temp[i]
-            kontaktaufnahme = temp[i]
-            return name, kontaktaufnahme
-        else:
-            return " ", " "
 
     def returnPartner(self):
         # namen und Kontaktaufnahme
         pass
+
+    def findePartner(self, wunschliste):
+
+        # TODO: Suchalgorythmus oben loeschen und testen
+
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
+
+        count = 0
+
+        for i in range(6):
+            if count == 0:
+                a = "geschlecht"
+            elif count == 1:
+                a = "alter"
+            elif count == 2:
+                a = "groesse"
+            elif count == 3:
+                a = "figur"
+            elif count == 4:
+                a = "rauchverhalten"
+            elif count == 5:
+                a = "hobby"
+
+            b = wunschliste[i-1]
+            c.execute('SELECT * from benutzer WHERE ?=?', (a, b,))
+            count += 1
+            print(c.fetchall())
+            for row in c.fetchall():
+                print(row[1])
+
+        # TODO: Name und kontaktaufnahme zurueckgeben
+
+        return 1, 2
