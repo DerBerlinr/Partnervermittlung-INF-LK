@@ -1,5 +1,6 @@
-from Tkinter import *
+from tkinter import *
 from gui import *
+import sqlite3
 
 
 class GUI_anmelden(Tk):
@@ -46,43 +47,28 @@ class GUI_anmelden(Tk):
 
 
 
-
-
     def fertig(self):
-        temp = []
-        listeDaten = []
-        check=0
-        searchfile = open("nutzer.txt", "r")
-        print "suche",self.benutzername.get(), self.passwort.get()
-        for line in searchfile:
-            if self.benutzername.get() in line and self.passwort.get() in line:
-                temp.append(line)
-                check=1
-                print temp, "gefunden"
-            else:
-                for line in searchfile:
-                    listeDaten.append(line)
-                    print "Daten in Liste"
-        searchfile.close()
-        print check
-        if check == 0:
-            writefile = open("nutzer.txt", "w+")
-            print "in Bedingung"
-            for line in writefile:
-                print "in Schleife"
-                if "#" in line:
-                    print "schreibe"
-                    print listeDaten
-                    for i in listeDaten:
-                        writefile.write(listeDaten[i])
-            writefile.close()
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
 
+        c.execute('CREATE TABLE IF NOT EXISTS anmeldung(nummer INT, benutzername TEXT, passwort TEXT)')
 
+        c.execute('SELECT * FROM anmeldung WHERE benutzername=? AND passwort=?', (self.benutzername.get(), self.passwort.get()))
 
+        print("a")
+        print(c.fetchall())
 
+        print("a")
+        print("row[1]")
+        while c.fetchall() == []:
+            c.execute('INSERT INTO anmeldung(nummer, benutzername, passwort) VALUES (?, ?, ?)', (1, self.benutzername.get(), self.passwort.get()))
+            c.execute('SELECT * FROM anmeldung WHERE benutzername=? AND passwort=?', (self.benutzername.get(), self.passwort.get()))
+            conn.commit()
 
         dasFenster.destroy()
         die_gui = GUI()
+
+
 
 
 
