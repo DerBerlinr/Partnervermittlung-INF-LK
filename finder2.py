@@ -1,29 +1,49 @@
 from random import *
 from abstrakterFinder import *
+from gui import *
+import sqlite3
 
 
 class Finder2(AbstrakterFinder):
     def __init__(self):
         pass
 
-    def findePartner(self, wunschliste):
-        # in wunschliste muessen w-werte uebergeben werden
-        temp = []
-        searchfile = open("file2.txt", "r")
-        for hobby in range(len(wunschliste[6])):
-            for line in searchfile:
-                if wunschliste[1] in line and wunschliste[2] in line and wunschliste[3] in line and wunschliste[4] in line and wunschliste[5] in line and wunschliste[6][hobby] in line:
-                    temp.append(line)
-                    searchfile.close()
 
-        laengeListe = len(temp)
-        i = randint(0,laengeListe)
-        name = temp[i[1:6]]
-        kontaktaufnahme = temp[i[7:16]]
-        return name, kontaktaufnahme
 
     def returnPartner(self):
         # namen und Kontaktaufnahme
         pass
 
-        
+    def findePartner(self, wunschliste):
+
+        # TODO: Suchalgorythmus oben loeschen und testen
+
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
+
+        count = 0
+
+        for i in range(6):
+            if count == 0:
+                a = "geschlecht"
+            elif count == 1:
+                a = "alter"
+            elif count == 2:
+                a = "groesse"
+            elif count == 3:
+                a = "figur"
+            elif count == 4:
+                a = "rauchverhalten"
+            elif count == 5:
+                a = "hobby"
+
+            b = wunschliste[i-1]
+            c.execute('SELECT * from benutzer WHERE ? IS ?', (a, b,))
+            count += 1
+            print(c.fetchall())
+            for row in c.fetchall():
+                print('a')
+                print(row[2] + row[16])
+                return row[2], row[16]
+
+        # TODO: Name und kontaktaufnahme zurueckgeben

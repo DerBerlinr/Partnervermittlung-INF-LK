@@ -282,8 +282,8 @@ class GUI(Tk,Bewerber):
         self.en22 = Entry(rahmen1, width=groesse, textvariable=self.whobby)
         self.en22.grid(row=22,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
 
-        self.bu11_2=Button(rahmen1,text="Fertig", width=groesse, command=self.abschicken)
-        self.bu11_2.grid(row=23,column=5,sticky=E, padx=abstand_x, pady=abstand_y)
+        self.bu12_2=Button(rahmen1,text="Fertig", width=groesse, command=self.abschicken)
+        self.bu12_2.grid(row=23,column=5,sticky=E, padx=abstand_x, pady=abstand_y)
 
     def mann(self):
         self.geschlecht = "m"
@@ -428,13 +428,6 @@ class GUI(Tk,Bewerber):
         a = allah
         b = 3
         die_3_GUI = gui_ausgabe(a, b)
-
-
-    def test(self):
-        print("Hallo")
-
-    def getdata(self):
-        return x, y, z,
 
 
 if __name__ == '__main__':
