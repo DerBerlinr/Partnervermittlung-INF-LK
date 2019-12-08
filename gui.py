@@ -9,17 +9,15 @@ import sqlite3
 
 
 
+
 class GUI(Tk,Bewerber):
     def __init__(self):
-
         Tk.__init__(self)
         self.haupt = Haupt()
         self.finder1 = Finder1()
         Bewerber.__init__(self)
 
-
-
-        rahmen1=Frame(self, relief=SUNKEN, borderwidth=2)
+        rahmen1 = Frame(self, relief=SUNKEN, borderwidth=2)
         rahmen1.pack()
 
         farbe = "#696969"
