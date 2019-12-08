@@ -53,17 +53,18 @@ class GUI_anmelden(Tk):
 
         c.execute('CREATE TABLE IF NOT EXISTS anmeldung(nummer INT, benutzername TEXT, passwort TEXT)')
 
-        c.execute('SELECT * FROM anmeldung WHERE benutzername=? AND passwort=?', (self.benutzername.get(), self.passwort.get()))
+        c.execute("SELECT * FROM anmeldung WHERE benutzername IS ? AND passwort IS ?", (self.benutzername.get(), self.passwort.get(),))
 
         print("a")
         print(c.fetchall())
 
         print("a")
         print("row[1]")
-        while c.fetchall() == []:
-            c.execute('INSERT INTO anmeldung(nummer, benutzername, passwort) VALUES (?, ?, ?)', (1, self.benutzername.get(), self.passwort.get()))
-            c.execute('SELECT * FROM anmeldung WHERE benutzername=? AND passwort=?', (self.benutzername.get(), self.passwort.get()))
-            conn.commit()
+        if c.fetchall() != []:
+            while c.fetchall() == []:
+                c.execute('INSERT INTO anmeldung(nummer, benutzername, passwort) VALUES (?, ?, ?)', (1, self.benutzername.get(), self.passwort.get()))
+                c.execute('SELECT * FROM anmeldung WHERE benutzername=? AND passwort=?', (self.benutzername.get(), self.passwort.get()))
+        conn.commit()
 
         dasFenster.destroy()
         die_gui = GUI()

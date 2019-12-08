@@ -6,6 +6,7 @@ from finder1 import *
 from finder2 import *
 from finder3 import *
 import sqlite3
+from gui_ausgabe import *
 
 
 
@@ -284,23 +285,6 @@ class GUI(Tk,Bewerber):
         self.bu11_2=Button(rahmen1,text="Fertig", width=groesse, command=self.abschicken)
         self.bu11_2.grid(row=23,column=5,sticky=E, padx=abstand_x, pady=abstand_y)
 
-        self.la23_text=StringVar()
-        self.la23_text.set("")
-        self.la23=Label(rahmen1,textvariable=self.la23_text, width=groesse, bg=farbe, justify=CENTER)
-        self.la23.grid(row=24,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
-
-        self.la24_text=StringVar()
-        self.la24_text.set("")
-        self.la24=Label(rahmen1,textvariable=self.la24_text, width=groesse, bg=farbe, justify=CENTER)
-        self.la24.grid(row=25,column=0,sticky=E, padx=abstand_x, pady=abstand_y)
-
-        self.la25_text=StringVar()
-        self.la25_text.set("")
-        self.la25=Label(rahmen1,textvariable=self.la25_text, width=40, bg="red", justify=CENTER)
-        self.la25.grid(row=26,column=1,sticky=E, padx=abstand_x, pady=abstand_y)
-
-
-
     def mann(self):
         self.geschlecht = "m"
 
@@ -385,11 +369,6 @@ class GUI(Tk,Bewerber):
     def wunschnichtraucher(self):
         self.wrauchverhalten = "nichtraucher"
 
-    def guiAktualisieren(self, name, kontaktaufnahme):
-        self.la23_text.set(name)
-        self.la24_text.set(kontaktaufnahme)
-
-
     def abschicken(self):
 
         if self.name == "" or self.vorname == "" or self.abc == "" or self.geschlecht == "" or self.groesse == "" or self.figur == "" or self.rauchverhalten == "" or self.orientierung == "" or self.hobby == "" or self.adresse == "" or self.telefonnummer == "" or self.email == "" or self.benachrichtigung == "" or self.zahlungsart == "" or self.iban == "" or self.kontaktaufnahme == "" or self.wgeschlecht == "" or self.walter == "" or self.wgroesse == "" or self.wfigur == "" or self.wrauchverhalten == "" or self.whobby == "":
@@ -445,7 +424,10 @@ class GUI(Tk,Bewerber):
         print(self.walter)
         self.haupt.personVonGUI(neuePerson)
         a,b = self.finder1.findePartner(self.wunschListe)
-        self.guiAktualisieren(a,b)
+        print(a,b)
+        a = allah
+        b = 3
+        die_3_GUI = gui_ausgabe(a, b)
 
 
     def test(self):

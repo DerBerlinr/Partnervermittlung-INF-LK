@@ -38,12 +38,12 @@ class Finder1(AbstrakterFinder):
                 a = "hobby"
 
             b = wunschliste[i-1]
-            c.execute('SELECT * from benutzer WHERE ?=?', (a, b,))
+            c.execute('SELECT * from benutzer WHERE ? IS ?', (a, b,))
             count += 1
             print(c.fetchall())
             for row in c.fetchall():
-                print(row[1])
+                print('a')
+                print(row[2] + row[16])
+                return row[2], row[16]
 
         # TODO: Name und kontaktaufnahme zurueckgeben
-
-        return 1, 2
